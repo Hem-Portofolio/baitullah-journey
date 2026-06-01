@@ -36,7 +36,7 @@ export default function PaketHaji() {
                 ))}
               </div>
               <div className="font-headline-md text-2xl md:text-3xl text-secondary mb-6">{paket.price}</div>
-              <button onClick={scrollToKontak} className="w-full bg-secondary text-on-secondary py-3.5 rounded-2xl font-label-lg hover:opacity-90 transition-all duration-200 active:scale-[0.97] shadow-lg hover:shadow-xl">
+              <button onClick={scrollToKontak} className="w-full bg-secondary text-on-secondary py-3.5 rounded-2xl font-label-lg hover:opacity-90 transition-all duration-200 active:scale-[0.97] shadow-lg hover:shadow-xl min-h-[48px]">
                 Daftar Sekarang
               </button>
             </div>

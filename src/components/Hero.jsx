@@ -30,8 +30,8 @@ function Countdown() {
         { value: time.hours, label: 'Jam' },
         { value: time.minutes, label: 'Menit' },
       ].map((item) => (
-        <div key={item.label} className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl min-w-[72px] sm:min-w-[80px] md:min-w-[100px] text-center">
-          <span className="block font-headline-md text-2xl sm:text-headline-md text-secondary-container">{item.value}</span>
+        <div key={item.label} className="bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 rounded-xl min-w-[64px] sm:min-w-[80px] md:min-w-[100px] text-center">
+          <span className="block font-headline-md text-xl sm:text-2xl md:text-headline-md text-secondary-container">{item.value}</span>
           <span className="font-label-sm text-label-sm text-white/70 uppercase">{item.label}</span>
         </div>
       ))}
@@ -43,7 +43,7 @@ export default function Hero() {
   const [ref, inView] = useInView({ threshold: 0.1 });
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden" ref={ref}>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20" ref={ref}>
       <div className="absolute inset-0 z-0">
         <img
           className="w-full h-full object-cover"
@@ -54,7 +54,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-on-background/70 via-on-background/40 to-on-background/80" />
       </div>
       <div className="relative z-10 text-center px-grid-margin max-w-4xl mx-auto space-y-6 md:space-y-8">
-        <p data-animate className={`text-secondary-container font-headline-md text-2xl sm:text-3xl opacity-90 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }} dir="rtl">
+        <p data-animate className={`text-secondary-container font-headline-md text-xl sm:text-2xl md:text-3xl opacity-90 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }} dir="rtl">
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
         </p>
         <h1 data-animate className={`font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary leading-tight ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.2s' }}>
@@ -67,10 +67,10 @@ export default function Hero() {
           <Countdown />
         </div>
         <div data-animate className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.5s' }}>
-          <a href="#paket" className="w-full sm:w-auto bg-secondary text-on-secondary px-8 md:px-10 py-4 rounded-full font-label-lg text-label-lg hover:bg-secondary/90 transition-all duration-200 shadow-xl hover:shadow-2xl active:scale-95 text-center">
+          <a href="#paket" className="w-full sm:w-auto bg-secondary text-on-secondary px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 rounded-full font-label-lg text-label-lg hover:bg-secondary/90 transition-all duration-200 shadow-xl hover:shadow-2xl active:scale-95 text-center text-sm sm:text-base min-h-[44px] flex items-center justify-center">
             Lihat Paket Umroh
           </a>
-          <a href="#kontak" className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/40 text-white px-8 md:px-10 py-4 rounded-full font-label-lg text-label-lg hover:bg-white/20 transition-all duration-200 active:scale-95 text-center">
+          <a href="#kontak" className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/40 text-white px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 rounded-full font-label-lg text-label-lg hover:bg-white/20 transition-all duration-200 active:scale-95 text-center text-sm sm:text-base min-h-[44px] flex items-center justify-center">
             Jadwal Keberangkatan
           </a>
         </div>

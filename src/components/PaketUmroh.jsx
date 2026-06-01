@@ -19,7 +19,7 @@ export default function PaketUmroh() {
               style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
             >
               {pkg.badge && (
-                <div className="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold z-10">
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-secondary text-on-secondary px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold z-10">
                   {pkg.badge}
                 </div>
               )}
@@ -44,7 +44,7 @@ export default function PaketUmroh() {
                 </ul>
               </div>
               <div className="p-6 pt-0">
-                <button className={`w-full py-3 rounded-xl font-label-lg hover:opacity-90 transition-all duration-200 active:scale-[0.97] ${pkg.featured ? 'bg-secondary text-on-secondary shadow-lg hover:shadow-xl' : 'bg-primary text-on-primary hover:bg-primary/90'}`}>
+                <button className={`w-full py-3 rounded-xl font-label-lg hover:opacity-90 transition-all duration-200 active:scale-[0.97] min-h-[44px] ${pkg.featured ? 'bg-secondary text-on-secondary shadow-lg hover:shadow-xl' : 'bg-primary text-on-primary hover:bg-primary/90'}`}>
                   Pilih Paket
                 </button>
               </div>

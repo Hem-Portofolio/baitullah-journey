@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         <Hero />
         <WhyUs />
         <PaketUmroh />

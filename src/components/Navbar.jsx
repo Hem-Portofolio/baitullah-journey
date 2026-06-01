@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 transition-all duration-300 ${scrolled ? 'py-3 shadow-md' : 'py-4 shadow-sm'}`}>
       <div className="flex justify-between items-center max-w-7xl mx-auto px-grid-margin">
         <a href="#hero" className="flex items-center gap-3">
-          <span className="font-headline-md text-headline-md text-primary tracking-tight">Baitullah Journey</span>
+          <span className="font-headline-md text-sm sm:text-xl md:text-headline-md text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary tracking-tight">Baitullah Journey</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -49,7 +49,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href="#kontak" onClick={() => setMenuOpen(false)} className="block text-center bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-lg hover:opacity-90 transition-opacity">
+          <a href="#kontak" onClick={() => setMenuOpen(false)} className="block text-center bg-secondary text-on-secondary px-6 py-3 rounded-full font-label-lg hover:opacity-90 transition-opacity min-h-[44px] flex items-center justify-center">
             Konsultasi Sekarang
           </a>
         </div>

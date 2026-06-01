@@ -29,8 +29,8 @@ export default function Blog() {
             >
               <div className={`h-36 md:h-44 ${bgColors[i]} flex items-center justify-center relative overflow-hidden`}>
                 <span className="material-symbols-outlined text-4xl md:text-5xl text-primary/40 group-hover:scale-110 transition-transform duration-500">menu_book</span>
-                <div className="absolute top-3 left-3 md:top-4 md:left-4">
-                  <span className="px-2.5 md:px-3 py-1 md:py-1.5 bg-white/90 backdrop-blur-sm rounded-full font-label-sm text-xs text-on-surface shadow-sm">
+                <div className="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4">
+                  <span className="px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 md:py-1.5 bg-white/90 backdrop-blur-sm rounded-full font-label-sm text-[10px] sm:text-xs text-on-surface shadow-sm">
                     {post.category}
                   </span>
                 </div>

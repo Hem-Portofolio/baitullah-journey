@@ -20,7 +20,7 @@ export default function Destinasi() {
           <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Destinasi Suci & Bersejarah</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant">Menelusuri jejak perjuangan Rasulullah SAW dan para sahabat.</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[250px]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[250px]">
           {destinasi.map((item, i) => {
             const isLarge = i === 0;
             const isWide = i === 5;
@@ -36,8 +36,8 @@ export default function Destinasi() {
                   alt={item.name}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/20 to-transparent flex flex-col justify-end p-4 md:p-6">
-                  <h4 className={`text-white font-headline-md ${isLarge ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>{item.name}</h4>
+                <div className="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/20 to-transparent flex flex-col justify-end p-3 md:p-6">
+                  <h4 className={`text-white font-headline-md ${isLarge ? 'text-lg sm:text-xl md:text-2xl' : 'text-sm sm:text-base md:text-lg'}`}>{item.name}</h4>
                   {(isLarge || isWide) && <p className="text-white/70 text-xs md:text-sm mt-1">{item.city || 'Taman Surga di Dunia'}</p>}
                 </div>
               </div>

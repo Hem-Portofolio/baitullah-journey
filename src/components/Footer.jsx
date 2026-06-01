@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-grid-margin py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-10 md:mb-12">
           <div data-animate className={`sm:col-span-2 space-y-5 md:space-y-6 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }}>
-            <span className="font-headline-md text-xl md:text-headline-md text-secondary-container">Baitullah Journey</span>
+            <span className="font-headline-md text-xl md:text-headline-md text-transparent bg-clip-text bg-gradient-to-r from-secondary-container to-white">Baitullah Journey</span>
             <p className="text-on-primary/80 max-w-md leading-relaxed text-sm md:text-base">
               Penyelenggara Perjalanan Ibadah Umroh (PPIU) Resmi Terakreditasi. Melayani dengan hati untuk perjalanan ibadah yang aman, nyaman, dan mabrur.
             </p>
