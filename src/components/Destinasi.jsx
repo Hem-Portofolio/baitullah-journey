@@ -1,69 +1,48 @@
-import { motion } from 'framer-motion';
-import { MapPin, Compass } from 'lucide-react';
 import { destinasi } from '../data';
+import useInView from '../hooks/useInView';
 
-const gradients = [
-  'from-emerald-500/10 to-emerald-600/5',
-  'from-blue-500/10 to-blue-600/5',
-  'from-amber-500/10 to-amber-600/5',
-  'from-rose-500/10 to-rose-600/5',
-  'from-teal-500/10 to-teal-600/5',
-];
-const iconColors = [
-  'bg-emerald-100 text-emerald-600',
-  'bg-blue-100 text-blue-600',
-  'bg-amber-100 text-amber-600',
-  'bg-rose-100 text-rose-600',
-  'bg-teal-100 text-teal-600',
+const images = [
+  'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800',
+  'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400',
+  'https://images.unsplash.com/photo-1566140967404-b8b3932483f5?w=400',
+  'https://images.unsplash.com/photo-1542816417-0983c9c9ad53?w=400',
+  'https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?w=400',
+  'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800',
 ];
 
 export default function Destinasi() {
+  const [ref, inView] = useInView();
+
   return (
-    <section id="destinasi" className="relative py-28 bg-white overflow-hidden">
-      <div className="absolute top-0 left-0 w-64 h-64 bg-emerald-50/50 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-amber-50/50 rounded-full blur-3xl" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-16"
-        >
-          <span className="text-primary-500 text-sm font-semibold uppercase tracking-[0.2em]">Jelajahi</span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-neutral-dark mt-3 mb-4">
-            <span className="bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">Destinasi</span> & Ziarah
-          </h2>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full mb-4" />
-          <p className="text-neutral-dark/60 max-w-2xl mx-auto text-lg">
-            Jelajahi tempat-tempat bersejarah dan penuh keberkahan
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {destinasi.map((item, i) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative bg-neutral-light rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${gradients[i]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              <div className="relative">
-                <div className={`w-12 h-12 ${iconColors[i]} rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:scale-110`}>
-                  {i < 2 ? <Compass className="w-6 h-6" /> : <MapPin className="w-6 h-6" />}
+    <section id="destinasi" className="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container" ref={ref}>
+      <div className="max-w-7xl mx-auto px-grid-margin">
+        <div data-animate className={`text-center mb-12 md:mb-16 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }}>
+          <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Destinasi Suci & Bersejarah</h2>
+          <p className="font-body-lg text-body-lg text-on-surface-variant">Menelusuri jejak perjuangan Rasulullah SAW dan para sahabat.</p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[250px]">
+          {destinasi.map((item, i) => {
+            const isLarge = i === 0;
+            const isWide = i === 5;
+            return (
+              <div
+                key={item.name}
+                data-animate className={`relative group overflow-hidden rounded-2xl ${inView ? 'in-view' : ''} ${isLarge ? 'md:col-span-2 md:row-span-2' : ''} ${isWide ? 'md:col-span-2' : ''}`}
+                style={{ transitionDelay: `${0.15 + i * 0.06}s` }}
+              >
+                <img
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  src={images[i] || images[0]}
+                  alt={item.name}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/20 to-transparent flex flex-col justify-end p-4 md:p-6">
+                  <h4 className={`text-white font-headline-md ${isLarge ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>{item.name}</h4>
+                  {(isLarge || isWide) && <p className="text-white/70 text-xs md:text-sm mt-1">{item.city || 'Taman Surga di Dunia'}</p>}
                 </div>
-                <h3 className="font-bold text-lg text-neutral-dark mb-1 group-hover:text-primary-600 transition-colors">{item.name}</h3>
-                <div className="flex items-center gap-1.5 text-xs text-neutral-dark/40 uppercase tracking-wider mb-2 font-medium">
-                  <MapPin size={10} />
-                  <span>{item.city}</span>
-                </div>
-                <p className="text-sm text-neutral-dark/60 leading-relaxed">{item.desc}</p>
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

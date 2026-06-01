@@ -2,29 +2,50 @@
 
 ## Source of truth
 
-- `prd.env` — Product Requirements Document (the only file in the repo). Read it first for all product and scope decisions.
-
-## Planned stack (from PRD)
-
-| Layer | Choice |
-|-------|--------|
-| Framework | React (functional components + hooks) |
-| Styling | Tailwind CSS / CSS Modules |
-| Icons | Lucide React / React Icons |
-| Animation | Framer Motion / CSS Transitions |
-| Deployment | Vercel or Netlify (static SPA) |
-| Fonts | Google Fonts (Playfair Display, Lato/Source Sans Pro, Amiri) |
+- `prd.env` — Product Requirements Document. Read first for all product/scope decisions.
 
 ## Status
 
-Greenfield — no code, no config, no dependencies have been created yet. The project has not been initialized (`npm init` / `create-react-app` / `vite` etc. not run).
+Vite + React SPA fully initialized with all 11 sections built as components in `src/components/`. Stale "greenfield" guidance — ignore.
 
-## Architecture (planned)
+## Commands
 
-Single Page Application with 11 named sections (Hero, Why Us, Paket Umroh, Paket Haji, Persiapan, Destinasi, Testimoni, Galeri, Blog, Kontak, Footer). See `prd.env:43-104` for detailed section specs.
+```sh
+npm run dev      # vite dev server
+npm run build    # vite build -> dist/
+npm run preview  # vite preview (preview production build)
+npm run lint     # eslint .
+```
+
+No test framework or typecheck command is configured.
+
+## Architecture
+
+- **Entry:** `index.html` → `src/main.jsx` → `src/App.jsx` (renders all 11 sections + Navbar + Footer)
+- **Data:** All text content, packages, testimonials, FAQs centralized in `src/data.js` — edit data there, not in components
+- **Components:** `src/components/` — one file per section, named per PRD (`Hero`, `WhyUs`, `PaketUmroh`, etc.)
+- **Routing:** Single-page, anchor-link navigation (`#hero`, `#paket-umroh`, etc.)
+
+## Tailwind custom theme (`tailwind.config.js`)
+
+- **Colors:** `primary` (green `#1B6B45` with 50–900 scale), `secondary` (gold `#C9963A`), `neutral-dark`/`neutral-light`
+- **Fonts:** `display` (Playfair Display), `body` (Lato), `arabic` (Amiri)
+- **Animations:** `float`, `fade-in-up`, `shimmer` — use Tailwind classes directly
+- Custom CSS classes in `src/index.css`: `.glass`, `.pattern-dots`, `.section-divider`, `.islamic-border`, `.text-shadow`
 
 ## Branding
 
-- Primary: `#1B6B45` (green), Secondary: `#C9963A` (gold)
-- Tone: warm, trustworthy, spiritual — respectful of Islamic values
-- WCAG 2.1 AA, mobile-first, Lighthouse ≥ 90
+| Token | Value |
+|-------|-------|
+| Primary | `#1B6B45` |
+| Secondary | `#C9963A` |
+| Neutral dark | `#2C1810` |
+| Neutral light | `#F8F3EC` |
+| Tone | Warm, trustworthy, spiritual — respectful of Islamic values |
+| Targets | WCAG 2.1 AA, mobile-first, Lighthouse ≥ 90 |
+
+## Dependencies added
+
+- `lucide-react` — icons (already imported in `data.js`)
+- `framer-motion` — animations
+- Google Fonts loaded via `<link>` in `index.html` (Playfair Display, Lato, Amiri)

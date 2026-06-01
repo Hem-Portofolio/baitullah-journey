@@ -1,36 +1,33 @@
-import { ShieldCheck, Users, Building2, IdCard, Star, Clock, ThumbsUp, MapPin, FileText, HelpCircle, MessageSquare, Phone, Mail, Luggage } from 'lucide-react';
-
 export const navLinks = [
   { label: 'Beranda', href: '#hero' },
   { label: 'Keunggulan', href: '#why-us' },
-  { label: 'Paket Umroh', href: '#paket-umroh' },
-  { label: 'Paket Haji', href: '#paket-haji' },
-  { label: 'Persiapan', href: '#persiapan' },
+  { label: 'Paket', href: '#paket' },
   { label: 'Destinasi', href: '#destinasi' },
   { label: 'Testimoni', href: '#testimoni' },
-  { label: 'Galeri', href: '#galeri' },
-  { label: 'Blog', href: '#blog' },
   { label: 'Kontak', href: '#kontak' },
 ];
 
-export const whyUsCards = [
-  { icon: ShieldCheck, title: 'Izin Resmi Kemenag', desc: 'Terdaftar dan diawasi langsung oleh Kementerian Agama RI' },
-  { icon: Users, title: 'Pembimbing Berpengalaman', desc: 'Didampingi pembimbing bersertifikat dan berpengalaman puluhan tahun' },
-  { icon: Building2, title: 'Hotel Bintang 4–5', desc: 'Penginapan nyaman dekat Masjidil Haram dan Masjid Nabawi' },
-  { icon: IdCard, title: 'Visa Terjamin', desc: 'Pengurusan visa cepat dan terjamin tanpa ribet' },
+export const stats = [
+  { value: '15.000+', label: 'Jamaah Terlayani' },
+  { value: '12 Tahun', label: 'Melayani Tamu Allah' },
+  { value: '4.9 Rating', label: 'Google Review' },
+  { value: '98%', label: 'Visa Approved' },
 ];
 
-export const stats = [
-  { value: '5000+', label: 'Jamaah Berangkat' },
-  { value: '15+', label: 'Tahun Pengalaman' },
-  { value: '4.9', label: 'Rating Kepuasan' },
+export const whyUsCards = [
+  { icon: 'hotel', title: 'Hotel Bintang 5', desc: 'Akomodasi terbaik di Makkah & Madinah dengan jarak yang sangat dekat dengan Masjid.' },
+  { icon: 'diversity_3', title: 'Pembimbing Berpengalaman', desc: 'Dibimbing oleh asatidz yang kompeten sesuai Sunnah Rasulullah SAW.' },
+  { icon: 'restaurant_menu', title: 'Menu Masakan Indonesia', desc: 'Katering masakan khas Indonesia setiap hari untuk menjaga stamina jamaah.' },
+  { icon: 'near_me', title: 'Jarak Dekat', desc: 'Lokasi hotel strategis, memberikan kemudahan akses 24 jam ke Masjidil Haram & Nabawi.' },
+  { icon: 'luggage', title: 'Perlengkapan Eksklusif', desc: 'Paket perlengkapan premium mulai dari koper, seragam, hingga buku doa saku.' },
+  { icon: 'support_agent', title: 'Handling Profesional', desc: 'Tim handling sigap melayani mulai dari keberangkatan hingga kepulangan ke tanah air.' },
 ];
 
 export const paketUmroh = [
-  { name: 'Reguler', duration: '9 Hari', hotel: 'Hotel Bintang 3', maskapai: 'Garuda Indonesia / Saudia', price: 'Rp 25.000.000', badge: null },
-  { name: 'Plus', duration: '12 Hari', hotel: 'Hotel Bintang 4', maskapai: 'Garuda Indonesia / Saudia', price: 'Rp 35.000.000', badge: 'Terlaris' },
-  { name: 'Premium', duration: '14 Hari', hotel: 'Hotel Bintang 5', maskapai: 'Garuda Indonesia / Emirates', price: 'Rp 50.000.000', badge: null },
-  { name: 'VIP', duration: '16 Hari', hotel: 'Executive Suite', maskapai: 'Emirates / Qatar Airways', price: 'Rp 75.000.000', badge: 'Terbatas' },
+  { name: 'Umroh Reguler', price: '28.5', badge: null, features: ['Flight Saudi Airlines Direct', 'Hotel Madinah *4', 'Hotel Makkah *4', 'Handling & Perlengkapan'] },
+  { name: 'Umroh VIP', price: '36.9', badge: 'FAVORIT', featured: true, features: ['Hotel Madinah *5 (Depan Gate)', 'Hotel Makkah *5 (Clock Tower)', 'Kereta Cepat Makkah - Madinah', 'VIP Airport Handling'] },
+  { name: 'Umroh + Turki', price: '42.5', badge: null, features: ['City Tour 3 Hari di Turki', 'Menginap di Cave Hotel', 'Makan Malam di Bosphorus', 'Umroh 9 Hari + Wisata'] },
+  { name: 'Umroh Ramadhan', price: '49.9', badge: null, features: ['Full Ramadhan di Makkah', 'Menu Iftar & Sahur Spesial', 'Shalat Tarawih di Masjidil Haram', 'Iktikaf 10 Malam Terakhir'] },
 ];
 
 export const paketHaji = [
@@ -39,26 +36,24 @@ export const paketHaji = [
 ];
 
 export const persiapanItems = [
-  { icon: FileText, title: 'Dokumen', desc: 'Passport (masa berlaku min. 12 bulan), Visa, Vaksin Meningitis, Pas foto' },
-  { icon: HelpCircle, title: 'FAQ', desc: 'Apa saja yang perlu disiapkan? Kapan waktu terbaik? Bagaimana cara daftar?' },
-  { icon: Luggage, title: 'Tips Packing', desc: 'Pakaian ihram, mukena, alas kaki nyaman, obat pribadi, perlengkapan ibadah' },
+  { icon: 'description', title: 'Dokumen', desc: 'Passport (masa berlaku min. 12 bulan), Visa, Vaksin Meningitis, Pas foto' },
+  { icon: 'help', title: 'FAQ', desc: 'Apa saja yang perlu disiapkan? Kapan waktu terbaik? Bagaimana cara daftar?' },
+  { icon: 'luggage', title: 'Tips Packing', desc: 'Pakaian ihram, mukena, alas kaki nyaman, obat pribadi, perlengkapan ibadah' },
 ];
 
 export const destinasi = [
-  { name: 'Masjidil Haram', city: 'Makkah', desc: 'Kiblat umat Islam, tempat Ka\'bah dan sumur Zamzam berada' },
+  { name: 'Masjidil Haram', city: 'Makkah Al-Mukarramah', desc: 'Kiblat umat Islam, tempat Ka\'bah dan sumur Zamzam berada' },
   { name: 'Masjid Nabawi', city: 'Madinah', desc: 'Masjid Nabi Muhammad SAW, tempat Raudhah yang mulia' },
   { name: 'Jabal Nur', city: 'Makkah', desc: 'Gua Hira tempat turunnya wahyu pertama Al-Quran' },
-  { name: 'Jabal Uhud', city: 'Madinah', desc: 'Bukit bersejarah tempat terjadinya Perang Uhud' },
   { name: 'Masjid Quba', city: 'Madinah', desc: 'Masjid pertama yang dibangun oleh Nabi Muhammad SAW' },
+  { name: 'Madain Saleh', city: 'Madinah', desc: 'Kota bersejarah dengan pahatan batu kuno dari peradaban Nabatean' },
+  { name: 'Raudhah', city: 'Madinah', desc: 'Taman Surga di Dunia' },
 ];
 
 export const testimonials = [
-  { name: 'Ahmad Fauzi', city: 'Jakarta', rating: 5, text: 'Pelayanan sangat memuaskan. Pembimbingnya sabar dan ilmunya dalam. Sangat direkomendasikan!', image: null },
-  { name: 'Siti Nurhaliza', city: 'Bandung', rating: 5, text: 'Alhamdulillah, perjalanan umroh pertama saya bersama Baitullah Journey sangat berkesan. Hotel dekat Masjidil Haram.', image: null },
-  { name: 'H. Bambang S.', city: 'Surabaya', rating: 4, text: 'Paket haji plusnya recommended. Proses pemberangkatan cepat dan pelayanan bintang 5.', image: null },
-  { name: 'Sarah Azizah', city: 'Makassar', rating: 5, text: 'Anak-anak saya juga ikut umroh, program keluarga sangat ramah anak. Terima kasih Baitullah Journey!', image: null },
-  { name: 'Drs. H. Mahmud', city: 'Medan', rating: 5, text: 'Sudah 3 kali umroh dengan Baitullah Journey. Konsisten memberikan pelayanan terbaik.', image: null },
-  { name: 'Rina Marlina', city: 'Yogyakarta', rating: 4, text: 'Persiapan berangkat sangat terorganisir. Briefing sebelum keberangkatan sangat membantu.', image: null },
+  { name: 'H. Ahmad Fauzi', title: '', rating: 5, text: 'Alhamdulillah, perjalanan Umroh VIP bersama Baitullah Journey sangat berkesan. Hotelnya benar-benar di depan Masjidil Haram, sangat memudahkan orang tua saya.' },
+  { name: 'Hj. Siti Aminah', title: '', rating: 5, text: 'Pembimbingnya sangat sabar dan telaten menjelaskan setiap rukun umroh. Masakan Indonesianya enak-enak, serasa tidak sedang di luar negeri.' },
+  { name: 'Bpk. Ridwan Hakim', title: '', rating: 5, text: 'Pelayanan handling bandara sangat cepat. Tidak perlu antre lama, semua sudah diurus oleh tim Baitullah Journey. Sangat direkomendasikan!' },
 ];
 
 export const galeri = [

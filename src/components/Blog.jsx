@@ -1,71 +1,57 @@
-import { motion } from 'framer-motion';
-import { Calendar, ArrowRight, BookOpen } from 'lucide-react';
 import { blogs } from '../data';
+import useInView from '../hooks/useInView';
 
 const bgColors = [
-  'from-emerald-100 to-emerald-200',
-  'from-blue-100 to-blue-200',
-  'from-amber-100 to-amber-200',
-  'from-rose-100 to-rose-200',
+  'bg-primary/10',
+  'bg-secondary/10',
+  'bg-primary-fixed-dim/20',
+  'bg-secondary-fixed-dim/20',
 ];
 
 export default function Blog() {
+  const [ref, inView] = useInView();
+
   return (
-    <section id="blog" className="relative py-28 bg-neutral-light overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-50/50 rounded-full blur-3xl" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-16"
-        >
-          <span className="text-primary-500 text-sm font-semibold uppercase tracking-[0.2em]">Edukasi</span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-neutral-dark mt-3 mb-4">
-            Blog & <span className="bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">Artikel</span>
-          </h2>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full mb-4" />
-          <p className="text-neutral-dark/60 max-w-2xl mx-auto text-lg">
-            Tips, panduan, dan informasi terbaru seputar Umroh & Haji
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section id="blog" className="py-section-gap-mobile md:py-section-gap-desktop bg-surface overflow-hidden" ref={ref}>
+      <div className="max-w-7xl mx-auto px-grid-margin">
+        <div data-animate className={`text-center mb-12 md:mb-16 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }}>
+          <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Blog & Artikel</h2>
+          <div className="w-24 h-1 bg-secondary mx-auto rounded-full mb-4" />
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Tips, panduan, dan informasi terbaru seputar Umroh & Haji</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {blogs.map((post, i) => (
-            <motion.article
+            <article
               key={post.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+              data-animate
+              className={`group bg-surface-container-low rounded-2xl overflow-hidden luxury-shadow hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${inView ? 'in-view' : ''}`}
+              style={{ transitionDelay: `${0.15 + i * 0.1}s` }}
             >
-              <div className={`h-44 bg-gradient-to-br ${bgColors[i]} flex items-center justify-center relative overflow-hidden`}>
-                <BookOpen className="w-12 h-12 text-white/60 group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-neutral-dark shadow-sm">
+              <div className={`h-36 md:h-44 ${bgColors[i]} flex items-center justify-center relative overflow-hidden`}>
+                <span className="material-symbols-outlined text-4xl md:text-5xl text-primary/40 group-hover:scale-110 transition-transform duration-500">menu_book</span>
+                <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                  <span className="px-2.5 md:px-3 py-1 md:py-1.5 bg-white/90 backdrop-blur-sm rounded-full font-label-sm text-xs text-on-surface shadow-sm">
                     {post.category}
                   </span>
                 </div>
               </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-xs text-neutral-dark/50 mb-3">
-                  <Calendar size={12} />
+              <div className="p-5 md:p-6">
+                <div className="flex items-center gap-2 font-label-sm text-xs text-on-surface-variant/50 mb-3">
+                  <span className="material-symbols-outlined text-xs">calendar_today</span>
                   <span>{post.date}</span>
                 </div>
-                <h3 className="font-bold text-neutral-dark mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors">
+                <h3 className="font-headline-md text-base md:text-lg text-on-surface mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200">
                   {post.title}
                 </h3>
-                <p className="text-sm text-neutral-dark/60 mb-4 line-clamp-2 leading-relaxed">
+                <p className="font-body-md text-sm text-on-surface-variant mb-4 line-clamp-2 leading-relaxed">
                   {post.excerpt}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-500 group-hover:text-primary-600 transition-colors">
+                <span className="inline-flex items-center gap-1.5 font-label-lg text-sm text-primary transition-colors duration-200">
                   Baca Selengkapnya
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-200">arrow_forward</span>
                 </span>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

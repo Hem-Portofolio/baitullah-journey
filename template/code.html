@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .arabesque-pattern {
+            background-image: radial-gradient(#C9963A 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+        .luxury-shadow {
+            box-shadow: 0 10px 30px -10px rgba(42, 23, 15, 0.15);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#ffdbce",
+                    "secondary-container": "#fec564",
+                    "on-primary-container": "#9be9b9",
+                    "on-primary-fixed-variant": "#005231",
+                    "on-tertiary-container": "#dcd8d1",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface": "#fff8f6",
+                    "on-tertiary-fixed-variant": "#494742",
+                    "inverse-on-surface": "#ffede7",
+                    "outline-variant": "#bfc9bf",
+                    "surface-container-low": "#fff1ec",
+                    "surface-tint": "#1b6b45",
+                    "tertiary-fixed": "#e7e2db",
+                    "inverse-primary": "#8ad7a8",
+                    "tertiary-fixed-dim": "#cac6bf",
+                    "tertiary": "#484642",
+                    "secondary-fixed": "#ffdeac",
+                    "surface-bright": "#fff8f6",
+                    "primary-container": "#1b6b45",
+                    "on-surface": "#2a170f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#281900",
+                    "tertiary-container": "#605e59",
+                    "on-tertiary-fixed": "#1d1c17",
+                    "outline": "#6f7a71",
+                    "on-surface-variant": "#3f4942",
+                    "secondary-fixed-dim": "#f5bd5d",
+                    "on-background": "#2a170f",
+                    "surface-container": "#ffe9e2",
+                    "surface-dim": "#f8d2c4",
+                    "primary-fixed-dim": "#8ad7a8",
+                    "primary": "#005231",
+                    "inverse-surface": "#422b22",
+                    "on-secondary-container": "#765100",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#a5f3c3",
+                    "on-error-container": "#93000a",
+                    "background": "#fff8f6",
+                    "secondary": "#7e5700",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ffe2d8",
+                    "surface-container-highest": "#ffdbce",
+                    "on-secondary-fixed-variant": "#604100",
+                    "on-primary-fixed": "#002111"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "section-gap-desktop": "120px",
+                    "grid-gutter": "24px",
+                    "grid-margin": "24px",
+                    "section-gap-mobile": "64px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "label-sm": ["Montserrat"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- 1. Sticky Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-grid-margin py-4">
+<div class="flex items-center gap-3">
+<img alt="Baitullah Journey Logo" class="h-12 w-auto object-contain" src="data:image/png;base64,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"/>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Baitullah Journey</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-lg text-label-lg text-secondary font-bold border-b-2 border-secondary" href="#">Home</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors" href="#">Packages</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors" href="#">Services</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors" href="#">Testimonials</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-lg text-label-lg hover:opacity-90 transition-opacity active:scale-95 duration-150 shadow-sm">
+                Konsultasi Sekarang
+            </button>
+</div>
+</nav>
+<!-- 2. Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A majestic view of the Kaaba in Mecca during the golden hour, surrounded by a peaceful crowd of pilgrims. The lighting is warm and ethereal, casting long shadows across the white marble courtyard. The architectural details of the Masjidil Haram are visible in the background under a deep blue twilight sky. The overall mood is one of profound spirituality, luxury, and tranquility, perfectly matching a premium travel brand's aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5iEbuHnNZC2cLIk9_JXRyJUFEXdRet7ObrL52YCS2XDDTCMB1C4GBRSgKO7iUI-k4fu82f1zJ_e7-ZkzWE6XauxAi4AVEYcNg7tCc5MCa_htDwDlwiP4eaEHgchBpSUMK4xsYfr-QwQNRWgq_q2IwuwLnzSjT475KLJwiCGVGVHwpVd6mRqOeuJt9aDhufYQURJVw_XpS63L9c7ObkL2C52e64GiMeQFlBQckvBuOez8SURY5h1jCW9RlxS6wIzRZI912HJKtEYE"/>
+<div class="absolute inset-0 bg-gradient-to-b from-on-background/70 via-on-background/40 to-on-background/80"></div>
+</div>
+<div class="relative z-10 text-center px-grid-margin max-w-4xl mx-auto space-y-8">
+<p class="text-secondary-container font-headline-md text-3xl opacity-90 mb-4" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+<h1 class="font-display-lg text-display-lg text-on-primary leading-tight">Wujudkan Impian Baitullah Anda</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto">
+                Paket Umroh &amp; Haji Plus Premium Bersama Pembimbing Berpengalaman. Nikmati perjalanan ibadah yang khusyuk dengan fasilitas terbaik dunia.
+            </p>
+<!-- Countdown Timer -->
+<div class="flex justify-center gap-4 md:gap-8 py-8">
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl min-w-[80px] md:min-w-[100px]">
+<span class="block font-headline-md text-headline-md text-secondary-container" id="days">12</span>
+<span class="font-label-sm text-label-sm text-white/70 uppercase">Hari</span>
+</div>
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl min-w-[80px] md:min-w-[100px]">
+<span class="block font-headline-md text-headline-md text-secondary-container" id="hours">08</span>
+<span class="font-label-sm text-label-sm text-white/70 uppercase">Jam</span>
+</div>
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl min-w-[80px] md:min-w-[100px]">
+<span class="block font-headline-md text-headline-md text-secondary-container" id="minutes">45</span>
+<span class="font-label-sm text-label-sm text-white/70 uppercase">Menit</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-secondary text-on-secondary px-10 py-4 rounded-full font-label-lg text-label-lg hover:bg-secondary/90 transition-all shadow-xl">
+                    Lihat Paket Umroh
+                </button>
+<button class="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/40 text-white px-10 py-4 rounded-full font-label-lg text-label-lg hover:bg-white/20 transition-all">
+                    Jadwal Keberangkatan
+                </button>
+</div>
+</div>
+</section>
+<!-- 3. Stats Bar -->
+<section class="bg-primary py-12 relative overflow-hidden">
+<div class="arabesque-pattern absolute inset-0"></div>
+<div class="max-w-7xl mx-auto px-grid-margin relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div class="space-y-1">
+<p class="font-display-lg text-3xl font-bold text-secondary-container">15.000+</p>
+<p class="font-label-lg text-on-primary/80">Jamaah Terlayani</p>
+</div>
+<div class="space-y-1 border-l border-white/10">
+<p class="font-display-lg text-3xl font-bold text-secondary-container">12 Tahun</p>
+<p class="font-label-lg text-on-primary/80">Melayani Tamu Allah</p>
+</div>
+<div class="space-y-1 border-l border-white/10">
+<p class="font-display-lg text-3xl font-bold text-secondary-container">4.9 Rating</p>
+<p class="font-label-lg text-on-primary/80">Google Review</p>
+</div>
+<div class="space-y-1 border-l border-white/10">
+<p class="font-display-lg text-3xl font-bold text-secondary-container">98%</p>
+<p class="font-label-lg text-on-primary/80">Visa Approved</p>
+</div>
+</div>
+</section>
+<!-- 4. Why Us (Service Highlights) -->
+<section class="py-section-gap-desktop bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-grid-margin">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-primary">Mengapa Memilih Baitullah Journey?</h2>
+<div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Dedikasi kami adalah memberikan kenyamanan maksimal agar ibadah Anda tetap khusyuk dan bermakna.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-grid-gutter">
+<!-- Card 1 -->
+<div class="bg-white p-8 rounded-xl border border-secondary/10 luxury-shadow group hover:border-secondary transition-all">
+<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-4xl">hotel</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Hotel Bintang 5</h3>
+<p class="text-on-surface-variant leading-relaxed">Akomodasi terbaik di Makkah &amp; Madinah dengan jarak yang sangat dekat dengan Masjid.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-8 rounded-xl border border-secondary/10 luxury-shadow group hover:border-secondary transition-all">
+<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-4xl">diversity_3</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Pembimbing Berpengalaman</h3>
+<p class="text-on-surface-variant leading-relaxed">Dibimbing oleh asatidz yang kompeten sesuai Sunnah Rasulullah SAW.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-8 rounded-xl border border-secondary/10 luxury-shadow group hover:border-secondary transition-all">
+<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-4xl">restaurant_menu</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Menu Masakan Indonesia</h3>
+<p class="text-on-surface-variant leading-relaxed">Katering masakan khas Indonesia setiap hari untuk menjaga stamina jamaah.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white p-8 rounded-xl border border-secondary/10 luxury-shadow group hover:border-secondary transition-all">
+<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-4xl">near_me</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Jarak Dekat</h3>
+<p class="text-on-surface-variant leading-relaxed">Lokasi hotel strategis, memberikan kemudahan akses 24 jam ke Masjidil Haram &amp; Nabawi.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-white p-8 rounded-xl border border-secondary/10 luxury-shadow group hover:border-secondary transition-all">
+<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-4xl">luggage</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Perlengkapan Eksklusif</h3>
+<p class="text-on-surface-variant leading-relaxed">Paket perlengkapan premium mulai dari koper, seragam, hingga buku doa saku.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-white p-8 rounded-xl border border-secondary/10 luxury-shadow group hover:border-secondary transition-all">
+<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-4xl">support_agent</span>
+</div>
+<h3 class="font-headline-md text-xl mb-3">Handling Profesional</h3>
+<p class="text-on-surface-variant leading-relaxed">Tim handling sigap melayani mulai dari keberangkatan hingga kepulangan ke tanah air.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Package Cards -->
+<section class="py-section-gap-desktop bg-surface">
+<div class="max-w-7xl mx-auto px-grid-margin">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Pilihan Paket Ibadah</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Rencanakan perjalanan suci Anda dengan pilihan paket yang beragam.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Package 1 -->
+<div class="bg-white rounded-2xl overflow-hidden border border-secondary/20 luxury-shadow flex flex-col">
+<div class="p-6 bg-primary/5 text-center">
+<h3 class="font-headline-md text-2xl text-primary mb-2">Umroh Reguler</h3>
+<div class="flex items-center justify-center gap-1 text-secondary font-bold">
+<span class="text-sm">Rp</span>
+<span class="text-3xl">28.5</span>
+<span class="text-sm">Jt</span>
+</div>
+</div>
+<div class="p-6 flex-grow space-y-4">
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Flight Saudi Airlines Direct
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Hotel Madinah *4
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Hotel Makkah *4
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Handling &amp; Perlengkapan
+                            </li>
+</ul>
+</div>
+<div class="p-6">
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-label-lg hover:bg-primary/90 transition-all">Pilih Paket</button>
+</div>
+</div>
+<!-- Package 2 - Featured -->
+<div class="bg-white rounded-2xl overflow-hidden border-2 border-secondary luxury-shadow flex flex-col relative transform scale-105 z-10">
+<div class="absolute top-4 right-4 bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold">FAVORIT</div>
+<div class="p-6 bg-secondary/10 text-center">
+<h3 class="font-headline-md text-2xl text-secondary mb-2">Umroh VIP</h3>
+<div class="flex items-center justify-center gap-1 text-secondary font-bold">
+<span class="text-sm">Rp</span>
+<span class="text-3xl">36.9</span>
+<span class="text-sm">Jt</span>
+</div>
+</div>
+<div class="p-6 flex-grow space-y-4">
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary text-sm">star</span> Hotel Madinah *5 (Depan Gate)
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary text-sm">star</span> Hotel Makkah *5 (Clock Tower)
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary text-sm">star</span> Kereta Cepat Makkah - Madinah
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary text-sm">star</span> VIP Airport Handling
+                            </li>
+</ul>
+</div>
+<div class="p-6">
+<button class="w-full py-3 bg-secondary text-on-secondary rounded-xl font-label-lg hover:opacity-90 transition-all">Pilih Paket</button>
+</div>
+</div>
+<!-- Package 3 -->
+<div class="bg-white rounded-2xl overflow-hidden border border-secondary/20 luxury-shadow flex flex-col">
+<div class="p-6 bg-primary/5 text-center">
+<h3 class="font-headline-md text-2xl text-primary mb-2">Umroh + Turki</h3>
+<div class="flex items-center justify-center gap-1 text-secondary font-bold">
+<span class="text-sm">Rp</span>
+<span class="text-3xl">42.5</span>
+<span class="text-sm">Jt</span>
+</div>
+</div>
+<div class="p-6 flex-grow space-y-4">
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> City Tour 3 Hari di Turki
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Menginap di Cave Hotel
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Makan Malam di Bosphorus
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Umroh 9 Hari + Wisata
+                            </li>
+</ul>
+</div>
+<div class="p-6">
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-label-lg hover:bg-primary/90 transition-all">Pilih Paket</button>
+</div>
+</div>
+<!-- Package 4 -->
+<div class="bg-white rounded-2xl overflow-hidden border border-secondary/20 luxury-shadow flex flex-col">
+<div class="p-6 bg-primary/5 text-center">
+<h3 class="font-headline-md text-2xl text-primary mb-2">Umroh Ramadhan</h3>
+<div class="flex items-center justify-center gap-1 text-secondary font-bold">
+<span class="text-sm">Rp</span>
+<span class="text-3xl">49.9</span>
+<span class="text-sm">Jt</span>
+</div>
+</div>
+<div class="p-6 flex-grow space-y-4">
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Full Ramadhan di Makkah
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Menu Iftar &amp; Sahur Spesial
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Shalat Tarawih di Masjidil Haram
+                            </li>
+<li class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Iktikaf 10 Malam Terakhir
+                            </li>
+</ul>
+</div>
+<div class="p-6">
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-label-lg hover:bg-primary/90 transition-all">Pilih Paket</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Destination Grid -->
+<section class="py-section-gap-desktop bg-surface-container">
+<div class="max-w-7xl mx-auto px-grid-margin">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Destinasi Suci &amp; Bersejarah</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Menelusuri jejak perjuangan Rasulullah SAW dan para sahabat.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide angle, cinematic photograph of the Masjidil Haram complex in Mecca at night. The vast marble courtyard glows under powerful floodlights, filled with thousands of pilgrims performing Tawaf around the Kaaba. The tall Clock Tower stands majestically in the background. The lighting is high-contrast and dramatic, emphasizing the spiritual magnitude and the pristine white architecture of the holy site." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz38z4ZJX3_B2tvpvljvd5iC4usZkzC77Rvk9y4fJuN3OqPEpXOsmV2w_DnYGXF_iE6qyJSWFgThhKqlpcRPFiq0eGZAi4fAL0dytjuqoZJ7Ce5ZVdvfEweWHKhRAWslB5CSjr6y5qdktQotFotH72HwYQyKMsp41Cx8RoU9TfA07STEsGUok9c21bu--HH7c3Rgdd2y0wYgAzaK_llUdanBomwm6bsoxiGYA6NJRjhBfYjaMXvQ2Oj12XvD_EhDWRSU8K68iwAkw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent flex flex-col justify-end p-6">
+<h4 class="text-white font-headline-md text-2xl">Masjidil Haram</h4>
+<p class="text-white/70 text-sm">Makkah Al-Mukarramah</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A serene close-up of the Green Dome of Masjid Nabawi in Medina. The dome is illuminated by the soft light of early morning, surrounded by the modern white umbrellas of the mosque's courtyard. The colors are dominated by deep greens and clean whites, creating a tranquil and respectful mood. High-end architectural photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLKXyQ-6nUnHQRN_aUjU5p0jg1tTYHV9QosBRmoMSbeqOY6KHD1_H7O8bQ8kH2xppXFznisfN3QNnSNw7k4HY1dq0uYrkpEe6ehrg3pEPwzHYovqzw78SPFMkmWOFg6SoXqlmnvoSV5tWjv84Hve09SxFSX5k5OJPlCl0DkimIsHeG2Rv4niXmL5gs3e-0pI3eCzQXbtLKhz-fJxjmDo1aj4lAbODxOIM4RotqNOLEFLQdaysif3pSjh6aaWHwu57URvXPNRN3F_c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent flex flex-col justify-end p-4">
+<h4 class="text-white font-headline-md text-lg">Masjid Nabawi</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A rugged landscape view of Jabal Nur (Mountain of Light) in Mecca. The mountain stands tall under a clear desert sky, with the small cave of Hira visible near the summit. The lighting is bright and warm, highlighting the rocky textures and the historical significance of the location where revelation first descended. Cinematic documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAshGPx3yJwpJr32ZOimI4Q_F2cl1DCnhopQy89_tx__PrWduAZRy2fY7PXrdgbYX3kMUifyT8DavQl1C5EkvDSYpRiZTI-fsliqtkE7dgfCdSZWhdpR7YcLrI-P92PZzGP70UuWWNhNryrAN4bxT9iaADBoF9CmMYVyDqWaZkukQiBzqNT23I2_UFDacskHYnvzGQ6xg3zQaIiAeN6Xz5WWAF-wNdWg90xXIjqoX0Y0HIdoJtEL_B4r24Z5PswIF883SwgAJyOTao"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent flex flex-col justify-end p-4">
+<h4 class="text-white font-headline-md text-lg">Jabal Nur</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="The elegant white minarets and facade of Masjid Quba in Medina, the first mosque ever built. The scene is shot during midday with bright, clear light that accentuates the pure white stone and classic Islamic architectural lines. The surrounding area is peaceful with green palm trees in the periphery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxcijOr_fUTnMQ6AGKNJOnkIJpyNJD3gwsCPXgm8KZHzeERYnxcZOoDoEQ6ZOnMAnKkH5JFI0ZLg6HGAPXMKzBwxQrvQwXCe0z2JL7nspABbQhUvAt42vhX4IjQbmL53QODgPwb4KxczIngLQ3A-zoZXisFIiY5CYjOlI__JBI8_I-EcWFSvQiI7xLD76KK5ENBNKOe-FKOm5YLNfoRvRqmMUqNA6B1Jq7N5mCaDZ2dpkaHcFNmIW1biEvf5UHznscaNYk9iuf_zs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent flex flex-col justify-end p-4">
+<h4 class="text-white font-headline-md text-lg">Masjid Quba</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="The historical site of Madain Saleh, showcasing ancient rock-cut tombs from the Nabatean civilization. The orange sandstone mountains glow in the sunset light, contrasting with the deep shadows of the desert landscape. The style is grand and editorial, evoking a sense of ancient history and wonder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUZI1_l7XauUB38jYkZ5yI9nls5EdyMCpom7i0qqIOLRUCpZn_ARRjiRAzE9LE_gmxyNEiZvhcjaRnYJhuFc1aptPLz_bvjbvOOTq-v6mPfy-XfHdYQ_t9T20PRSgDl2kzUwtqQiWQ_UnAy7ql75K4jJ62cLyWRPpUDQsP5h_qaxj3pa8oPgdGHGLetepBnnZh6iDkl_pFIW14u8ZxNTkHV9RmwAIk8eTAi6U2M6IOMjahUSimNFpVAfzYXArUJcbhJenUVOL1Otg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent flex flex-col justify-end p-4">
+<h4 class="text-white font-headline-md text-lg">Madain Saleh</h4>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-2xl md:col-span-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An interior view of the Raudhah area in the Prophet's Mosque, characterized by the distinct green carpets and ornate golden grills. The lighting is soft and golden, creating a heavenly and highly spiritual atmosphere. The focus is on the intricate Islamic patterns and calligraphy that decorate the sacred space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNbE6GUp70_6MVX2oEJzaPA19wGxfsR1i8UyuSpoSMV_gxh46ENeZNZ37FgbL2ekMbdp75QC1-LbD3d3r4xjAkJ4UUHL3fc_da3tTQM93tRm2ZVYeFppsFA9HkJvKVjVijuq3myKdhDl0lU83zXtJHYmvOgsZ8Cdnu-252NKZXhyKhGV1ubgIByEdQAofH2rEUPfLIwD4ewogSLjsWe2TAXnU8qTVfvsav9knC1JslIijkyBtt83GdqBg9sGPlDSHOGfM70LVem5E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent flex flex-col justify-end p-6">
+<h4 class="text-white font-headline-md text-2xl">Raudhah</h4>
+<p class="text-white/70 text-sm">Taman Surga di Dunia</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Testimonials -->
+<section class="py-section-gap-desktop bg-surface-container-low relative">
+<div class="arabesque-pattern absolute inset-0"></div>
+<div class="max-w-7xl mx-auto px-grid-margin relative z-10">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Apa Kata Mereka?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Kepuasan jamaah adalah amanah dan prioritas kami.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white p-8 rounded-2xl luxury-shadow border border-secondary/5">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a satisfied middle-aged male pilgrim with a gentle smile. He is dressed in formal Indonesian attire. The background is softly blurred with warm lighting, emphasizing a sense of peacefulness and professional photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzqhQtb_JpUkW_mFEO0BfqSyU-TNnYC9TgbXzoU4QF-kIluFuTWmUtiZ185ytPn4NgG3U7eKt20xj3QI8E4-LTnY1x9sT9xS9q0FIuBoSsp_yMoss5_dD-VzfVtem5AEC3WExbPnfNOAAekFPp5f4oWYelRcIaDPvXhKgdpErnK8hS333z394FLWiljW4WW8J14ht4KeCORky48wPkb1nxBkQAGpZiZzz7glbyl8nrrQzMhAmQF0B6_GXCLXXc0AeWwmsgZlHD1qc"/>
+</div>
+<div>
+<h4 class="font-label-lg text-primary">H. Ahmad Fauzi</h4>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed">"Alhamdulillah, perjalanan Umroh VIP bersama Baitullah Journey sangat berkesan. Hotelnya benar-benar di depan Masjidil Haram, sangat memudahkan orang tua saya."</p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-8 rounded-2xl luxury-shadow border border-secondary/5">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a happy Indonesian woman wearing a stylish and modest hijab. She has a bright, trustworthy expression. The lighting is natural and high-key, creating a clean, modern aesthetic. High-quality editorial portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCujlpH8daZMF1Ky_Kam-9qgGrwrh3dUIQSuS2hgnQa1jvyWQiFCBezDlwaFryKv3uK13gXNHrGPq5pIM9Y1_YqolrPTWfvjJy63VLiGHOH1mmdJMlXOdnUCm4ypS7xZmnCnRB5YBXuVEsCLFlD07oywDUxKbaZgaPrC45x56TTDiQ4g__joOwBN1yX6cKJNFrDt8nv3BPErWMxHnQ0HolP1M7raapHj4ceymYW0XtzxFSuvKAS8XIsMyNceqMwdcIDPL-TWSsnEiM"/>
+</div>
+<div>
+<h4 class="font-label-lg text-primary">Hj. Siti Aminah</h4>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed">"Pembimbingnya sangat sabar dan telaten menjelaskan setiap rukun umroh. Masakan Indonesianya enak-enak, serasa tidak sedang di luar negeri."</p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-8 rounded-2xl luxury-shadow border border-secondary/5">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-full bg-surface-variant flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional male traveler in his 30s with a confident and peaceful look. The lighting is sophisticated and warm, suggesting a premium service context. The image uses a shallow depth of field to keep the focus sharp on the subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8ZJwfdPxv9PW51YiDfZz33uideGcefDL_7PbY2N15WpHmZ7hnOTPZHXicbXYe5hqhhRNpcFJJv_RBWKjNMp5j5DdNTs1_Cu76J_qNeK7gO2uUOkH3-_t0JS2u0NXll_Q6aGWKtQrRPh3m4cbuV9s3TuCAop5x6fYdCQG5tGb2_jgzWnoXkAk8j90BCO74ao47Whxr9yXevs1CsTrOLbMKThSIi2wnxO_6D6ZZV2Us1MON87HbtvTaeKp9ZylRCSXWZk9EyZZXXkE"/>
+</div>
+<div>
+<h4 class="font-label-lg text-primary">Bpk. Ridwan Hakim</h4>
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed">"Pelayanan handling bandara sangat cepat. Tidak perlu antre lama, semua sudah diurus oleh tim Baitullah Journey. Sangat direkomendasikan!"</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Contact Form -->
+<section class="py-section-gap-desktop bg-surface">
+<div class="max-w-7xl mx-auto px-grid-margin">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-primary">Konsultasi Gratis Sekarang</h2>
+<p class="font-body-lg text-on-surface-variant">Tim ahli kami siap membantu Anda merencanakan perjalanan ibadah terbaik sesuai budget dan kebutuhan Anda.</p>
+<form class="space-y-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-lg text-primary">Nama Lengkap</label>
+<input class="w-full border-b border-on-surface/20 bg-transparent py-3 focus:outline-none focus:border-secondary transition-colors" placeholder="Masukkan nama Anda" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-lg text-primary">Nomor WhatsApp</label>
+<input class="w-full border-b border-on-surface/20 bg-transparent py-3 focus:outline-none focus:border-secondary transition-colors" placeholder="0812-xxxx-xxxx" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-lg text-primary">Pilihan Paket</label>
+<select class="w-full border-b border-on-surface/20 bg-transparent py-3 focus:outline-none focus:border-secondary transition-colors">
+<option>Umroh Reguler</option>
+<option>Umroh VIP</option>
+<option>Umroh Plus</option>
+<option>Haji Plus</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-lg text-primary">Pesan Tambahan</label>
+<textarea class="w-full border-b border-on-surface/20 bg-transparent py-3 focus:outline-none focus:border-secondary transition-colors" placeholder="Tuliskan pertanyaan Anda..." rows="3"></textarea>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-lg hover:bg-primary/90 transition-all shadow-lg">Kirim Pesan</button>
+</form>
+</div>
+<div class="bg-secondary-fixed p-12 rounded-3xl space-y-8 text-center lg:text-left">
+<h3 class="font-headline-md text-on-secondary-fixed text-3xl">Butuh Respon Cepat?</h3>
+<p class="text-on-secondary-fixed-variant">Hubungi layanan Customer Service kami via WhatsApp yang aktif 24/7 untuk membantu Anda.</p>
+<a class="inline-flex items-center gap-4 bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline-md text-xl hover:scale-105 transition-transform luxury-shadow" href="https://wa.me/#">
+<span class="material-symbols-outlined text-3xl">chat</span>
+                        Chat via WhatsApp
+                    </a>
+<div class="flex flex-col gap-4 pt-8 text-on-secondary-fixed-variant">
+<div class="flex items-center gap-3 justify-center lg:justify-start">
+<span class="material-symbols-outlined">location_on</span>
+<span>Jl. Jendral Sudirman No. 12, Jakarta Selatan</span>
+</div>
+<div class="flex items-center gap-3 justify-center lg:justify-start">
+<span class="material-symbols-outlined">call</span>
+<span>(021) 555-0123</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 9. Footer -->
+<footer class="bg-primary text-on-primary">
+<div class="max-w-7xl mx-auto px-grid-margin py-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-2 space-y-6">
+<div class="flex items-center gap-3">
+<img alt="Baitullah Journey Logo" class="h-12 w-auto brightness-0 invert" src="data:image/png;base64,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"/>
+<span class="font-headline-md text-headline-md text-secondary-container">Baitullah Journey</span>
+</div>
+<p class="text-on-primary/80 max-w-md leading-relaxed">
+                        Penyelenggara Perjalanan Ibadah Umroh (PPIU) Resmi Terakreditasi. Melayani dengan hati untuk perjalanan ibadah yang aman, nyaman, dan mabrur.
+                    </p>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-lg text-secondary-container">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">About Us</a></li>
+<li><a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-lg text-secondary-container">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-md text-body-md text-on-primary/60">
+                    © 2024 Al-Harmain Premium Travel. All Rights Reserved. Licensed Umroh &amp; Haji Operator.
+                </p>
+<div class="flex items-center gap-2 grayscale opacity-60">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-sm uppercase tracking-widest">Kemenag Certified</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Countdown Timer Logic
+        function updateCountdown() {
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 12); // Always 12 days from now for demo
+
+            function update() {
+                const now = new Date().getTime();
+                const distance = targetDate.getTime() - now;
+
+                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById('days').innerText = String(d).padStart(2, '0');
+                document.getElementById('hours').innerText = String(h).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+            }
+            
+            setInterval(update, 1000);
+            update();
+        }
+        updateCountdown();
+
+        // Navbar interaction
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4', 'shadow-sm');
+            } else {
+                nav.classList.add('py-4', 'shadow-sm');
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>

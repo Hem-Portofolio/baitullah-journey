@@ -2,14 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    font-family: 'Lato', 'Source Sans Pro', sans-serif;
-    color: #2C1810;
-    background-color: #F8F3EC;
+    font-family: 'Montserrat', sans-serif;
+    color: #2a170f;
+    background-color: #fff8f6;
   }
   ::selection {
     background-color: #1B6B45;
@@ -77,5 +101,16 @@
   }
   .text-shadow-lg {
     text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .arabesque-pattern {
+    background-image: radial-gradient(#C9963A 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    opacity: 0.1;
+  }
+  .luxury-shadow {
+    box-shadow: 0 10px 30px -10px rgba(42, 23, 15, 0.15);
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
   }
 }

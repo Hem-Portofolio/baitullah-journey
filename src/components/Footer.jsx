@@ -1,69 +1,45 @@
-import { navLinks } from '../data';
+import useInView from '../hooks/useInView';
 
 export default function Footer() {
-  const handleClick = (href) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [ref, inView] = useInView();
 
   return (
-    <footer className="relative bg-neutral-dark overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(27,107,69,0.1)_0%,transparent_70%)]" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-secondary-500/30 to-transparent" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
-          <div className="md:col-span-2">
-            <h3 className="text-2xl font-display font-bold text-secondary-500 mb-4">Baitullah Journey</h3>
-            <p className="text-white/50 text-sm leading-relaxed max-w-sm">
-              Mitra terpercaya perjalanan ibadah Umroh & Haji Anda. 
-              Izin resmi Kementerian Agama RI.
+    <footer className="bg-primary text-on-primary" ref={ref}>
+      <div className="max-w-7xl mx-auto px-grid-margin py-12 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-10 md:mb-12">
+          <div data-animate className={`sm:col-span-2 space-y-5 md:space-y-6 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }}>
+            <span className="font-headline-md text-xl md:text-headline-md text-secondary-container">Baitullah Journey</span>
+            <p className="text-on-primary/80 max-w-md leading-relaxed text-sm md:text-base">
+              Penyelenggara Perjalanan Ibadah Umroh (PPIU) Resmi Terakreditasi. Melayani dengan hati untuk perjalanan ibadah yang aman, nyaman, dan mabrur.
             </p>
-            <div className="flex gap-3 mt-6">
-              {['Instagram', 'Facebook', 'YouTube', 'TikTok'].map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="w-10 h-10 bg-white/5 hover:bg-secondary-500/20 rounded-xl flex items-center justify-center text-white/40 hover:text-secondary-500 transition-all duration-300 text-xs font-medium"
-                >
-                  {s.charAt(0)}
+          </div>
+          <div data-animate className={`space-y-5 md:space-y-6 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.2s' }}>
+            <h4 className="font-label-lg text-secondary-container">Quick Links</h4>
+            <ul className="space-y-3 md:space-y-4">
+              <li><a href="#hero" className="text-on-primary/80 hover:text-secondary-container transition-colors duration-200 text-sm md:text-base">Beranda</a></li>
+              <li><a href="#paket" className="text-on-primary/80 hover:text-secondary-container transition-colors duration-200 text-sm md:text-base">Paket</a></li>
+              <li><a href="#testimoni" className="text-on-primary/80 hover:text-secondary-container transition-colors duration-200 text-sm md:text-base">Testimoni</a></li>
+              <li><a href="#kontak" className="text-on-primary/80 hover:text-secondary-container transition-colors duration-200 text-sm md:text-base">Kontak</a></li>
+            </ul>
+          </div>
+          <div data-animate className={`space-y-5 md:space-y-6 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.3s' }}>
+            <h4 className="font-label-lg text-secondary-container">Follow Us</h4>
+            <div className="flex gap-3 md:gap-4">
+              {['public', 'share', 'alternate_email'].map((icon) => (
+                <a key={icon} href="#" className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container hover:text-primary transition-all duration-200">
+                  <span className="material-symbols-outlined text-lg md:text-base">{icon}</span>
                 </a>
               ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-white/90 mb-4 text-sm uppercase tracking-wider">Navigasi</h4>
-            <div className="space-y-2.5">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                  className="block text-sm text-white/40 hover:text-secondary-500 transition-colors duration-300"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-white/90 mb-4 text-sm uppercase tracking-wider">Legal</h4>
-            <div className="space-y-2.5 text-sm text-white/40">
-              <p>Terdaftar di Kemenag RI</p>
-              <p>Izin: 123/2026</p>
-              <p>Anggota ASITA & HIMPUH</p>
             </div>
           </div>
         </div>
-
-        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white/30">
-            &copy; {new Date().getFullYear()} Baitullah Journey. All rights reserved.
+        <div data-animate className={`pt-10 md:pt-12 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.4s' }}>
+          <p className="font-body-md text-sm md:text-body-md text-on-primary/60">
+            &copy; 2026 Baitullah Journey. All Rights Reserved. Licensed Umroh & Haji Operator.
           </p>
-          <div className="flex gap-6 text-xs text-white/20">
-            <a href="#" className="hover:text-white/40 transition-colors">Kebijakan Privasi</a>
-            <a href="#" className="hover:text-white/40 transition-colors">Syarat & Ketentuan</a>
+          <div className="flex items-center gap-2 grayscale opacity-60">
+            <span className="material-symbols-outlined text-sm md:text-base">verified_user</span>
+            <span className="font-label-sm uppercase tracking-widest text-xs md:text-sm">Kemenag Certified</span>
           </div>
         </div>
       </div>
